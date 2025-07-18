@@ -17,9 +17,9 @@
       theme: {
         extend: {
           colors: {
-            primary: '#93c5fd',  // light blue-300
-            secondary: '#fbcfe8', // pink-300
-            accent: '#f9a8d4',    // pink-400
+            primary: '#93c5fd',
+            secondary: '#fbcfe8',
+            accent: '#f9a8d4',
             lightbg: '#fafafa',
           },
           fontFamily: {
@@ -35,13 +35,12 @@
     body {
       font-family: 'Inter', sans-serif;
       background: linear-gradient(135deg, #93c5fd 0%, #fbcfe8 100%);
-      color: #374151; /* gray-700 */
+      color: #374151;
       position: relative;
       overflow-x: hidden;
       min-height: 100vh;
     }
 
-    /* Butterfly SVG styles */
     .butterfly {
       position: absolute;
       width: 40px;
@@ -74,18 +73,9 @@
     }
 
     @keyframes flutter {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0.6;
-      }
-      50% {
-        transform: translateY(-15px) rotate(15deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0.6;
-      }
+      0% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+      50% { transform: translateY(-15px) rotate(15deg); opacity: 1; }
+      100% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
     }
 
     .glass-box {
@@ -97,7 +87,7 @@
       color: #374151;
     }
 
-    a.btn-primary {
+    a.btn-primary, button.btn-primary {
       background: linear-gradient(90deg, #93c5fd, #f9a8d4);
       color: #374151;
       font-weight: 600;
@@ -109,13 +99,14 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       box-shadow: 0 4px 6px rgba(147,197,253,0.5);
     }
-    a.btn-primary:hover {
+
+    a.btn-primary:hover, button.btn-primary:hover {
       transform: scale(1.05);
       box-shadow: 0 0 15px #f9a8d4;
       color: #1e293b;
     }
 
-    a.btn-secondary {
+    a.btn-secondary, button.btn-secondary {
       border: 2px solid #f9a8d4;
       color: #f9a8d4;
       padding: 1rem 2rem;
@@ -126,7 +117,8 @@
       gap: 0.5rem;
       transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
     }
-    a.btn-secondary:hover {
+
+    a.btn-secondary:hover, button.btn-secondary:hover {
       background-color: #f9a8d4;
       color: #374151;
       transform: scale(1.05);
@@ -135,16 +127,10 @@
 </head>
 <body>
 
-  <!-- Butterflies SVG decorations -->
-  <svg class="butterfly" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-    <path d="M32 12c-8 0-14 6-14 14 0 7 6 14 14 14s14-7 14-14c0-8-6-14-14-14zm-7 14a7 7 0 0 1 14 0c0 4-3 7-7 7s-7-3-7-7z"/>
-  </svg>
-  <svg class="butterfly" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-    <path d="M32 12c-8 0-14 6-14 14 0 7 6 14 14 14s14-7 14-14c0-8-6-14-14-14zm-7 14a7 7 0 0 1 14 0c0 4-3 7-7 7s-7-3-7-7z"/>
-  </svg>
-  <svg class="butterfly" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-    <path d="M32 12c-8 0-14 6-14 14 0 7 6 14 14 14s14-7 14-14c0-8-6-14-14-14zm-7 14a7 7 0 0 1 14 0c0 4-3 7-7 7s-7-3-7-7z"/>
-  </svg>
+  <!-- Butterfly Decorations -->
+  <svg class="butterfly" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M32 12c-8 0-14 6-14 14 0 7 6 14 14 14s14-7 14-14c0-8-6-14-14-14zm-7 14a7 7 0 0 1 14 0c0 4-3 7-7 7s-7-3-7-7z"/></svg>
+  <svg class="butterfly" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M32 12c-8 0-14 6-14 14 0 7 6 14 14 14s14-7 14-14c0-8-6-14-14-14zm-7 14a7 7 0 0 1 14 0c0 4-3 7-7 7s-7-3-7-7z"/></svg>
+  <svg class="butterfly" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><path d="M32 12c-8 0-14 6-14 14 0 7 6 14 14 14s14-7 14-14c0-8-6-14-14-14zm-7 14a7 7 0 0 1 14 0c0 4-3 7-7 7s-7-3-7-7z"/></svg>
 
   <div class="min-h-screen px-4 py-10 flex items-center justify-center">
     <div class="w-full max-w-4xl glass-box p-12 shadow-lg text-center">
@@ -159,20 +145,31 @@
 
       <!-- CTA Buttons -->
       <div class="flex flex-col sm:flex-row justify-center gap-8 mb-12">
-        <a href="{{ route('register') }}" class="btn-primary">
-          <!-- Register icon -->
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M16 21v-2a4 4 0 00-3-3.87M5 19v2m11-11a4 4 0 11-8 0 4 4 0 018 0z"/>
-          </svg>
-          Register
-        </a>
-        <a href="{{ route('login') }}" class="btn-secondary">
-          <!-- Login icon -->
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path d="M15 12H3m0 0l4-4m-4 4l4 4m13 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V5a3 3 0 013-3h7"/>
-          </svg>
-          Login
-        </a>
+
+        <!-- Register Form -->
+        <form method="POST" action="{{ route('register') }}">
+          @csrf
+          <input type="hidden" name="_method" value="GET">
+          <button type="submit" class="btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M16 21v-2a4 4 0 00-3-3.87M5 19v2m11-11a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+            Register
+          </button>
+        </form>
+
+        <!-- Login Form -->
+        <form method="POST" action="{{ route('login') }}">
+          @csrf
+          <input type="hidden" name="_method" value="GET">
+          <button type="submit" class="btn-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M15 12H3m0 0l4-4m-4 4l4 4m13 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V5a3 3 0 013-3h7"/>
+            </svg>
+            Login
+          </button>
+        </form>
+
       </div>
 
       <!-- Features -->
